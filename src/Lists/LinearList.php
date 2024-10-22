@@ -10,8 +10,8 @@ use DataStructures\Exceptions\NonInsertedItemException;
 
 class LinearList implements ListInterface
 {
-    private array $list = [];
-    private int $size = 0;
+    protected array $list = [];
+    protected int $size = 0;
     public readonly int $maxSize;
 
 

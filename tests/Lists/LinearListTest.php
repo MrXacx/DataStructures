@@ -20,7 +20,7 @@ class LinearListTest extends TestCase
     {
         $n = random_int(1, PHP_INT_MAX);
         $linearList = new LinearList($n);
-        $this->assertTrue($linearList->maxSize == $n);
+        $this->assertEquals($n, $linearList->maxSize);
     }
 
     /**
@@ -50,7 +50,7 @@ class LinearListTest extends TestCase
             ->append(2)
             ->append(3);
 
-        $this->assertTrue($list->fetch(2) == 1);
+        $this->assertEquals(1, $list->fetch(2));
     }
 
     public function testCanNotInsertDuplicatedItem()
@@ -91,7 +91,7 @@ class LinearListTest extends TestCase
             ->remove(2);
 
         $this->assertNull($list->fetch(2));
-        $this->assertTrue($list->fetch(3) == 1);
+        $this->assertEquals(1, $list->fetch(3));
     }
 
     public function testCanNotRemoveNonInsertedItem()
