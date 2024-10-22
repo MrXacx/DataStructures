@@ -35,4 +35,3 @@ jobs:
         with:
           branch: dev
           commit_message: Update dependencies
-          file_pattern: 'composer.json, composer.lock'
