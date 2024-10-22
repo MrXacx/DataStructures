@@ -1,0 +1,37 @@
+name: Dependencies CI
+
+on:
+  push:
+    branches: [ "dev" ]
+  pull_request:
+    branches: [ "dev" ]
+
+permissions:
+  contents: write
+
+jobs:
+
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.head_ref }}
+
+      - name: Setup PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: 8.3
+
+      - name: Update dependencies
+        run: composer update
+
+      - name: Validate composer files
+        run: composer validate --strict
+
+      - uses: stefanzweifel/git-auto-commit-action@v5
+        with:
+          commit_message: Update dependencies
+          file_pattern: 'composer.json, composer.lock'
