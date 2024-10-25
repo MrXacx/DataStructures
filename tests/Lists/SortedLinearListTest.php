@@ -2,9 +2,6 @@
 
 namespace Tests\Lists;
 
-use DataStructures\Exceptions\ListException;
-use DataStructures\Exceptions\NonInsertedItemException;
-use DataStructures\Lists\LinearList;
 use DataStructures\Lists\SortedLinearList;
 use PHPUnit\Framework\TestCase;
 

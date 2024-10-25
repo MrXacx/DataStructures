@@ -2,9 +2,6 @@
 
 namespace DataStructures\Lists;
 
-use DataStructures\Exceptions\ListUnderflowException;
-use DataStructures\Exceptions\NonInsertedItemException;
-
 class SortedLinearList extends LinearList
 {
     public function fetch($n): ?int

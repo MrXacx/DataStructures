@@ -2,11 +2,11 @@
 
 namespace DataStructures\Lists;
 
-use DataStructures\Exceptions\DuplicatedListItemException;
-use DataStructures\Exceptions\ListException;
-use DataStructures\Exceptions\ListOverflowException;
-use DataStructures\Exceptions\ListUnderflowException;
-use DataStructures\Exceptions\NonInsertedItemException;
+use DataStructures\Exceptions\Lists\DuplicatedListItemException;
+use DataStructures\Exceptions\Lists\ListException;
+use DataStructures\Exceptions\Lists\ListOverflowException;
+use DataStructures\Exceptions\Lists\ListUnderflowException;
+use DataStructures\Exceptions\Lists\NonInsertedItemException;
 
 class LinearList implements ListInterface
 {

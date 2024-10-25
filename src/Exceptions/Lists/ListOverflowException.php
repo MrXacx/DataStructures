@@ -1,6 +1,6 @@
 <?php
 
-namespace DataStructures\Exceptions;
+namespace DataStructures\Exceptions\Lists;
 
 class ListOverflowException extends ListException
 {

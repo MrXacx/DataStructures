@@ -2,11 +2,11 @@
 
 namespace Tests\Lists;
 
-use DataStructures\Exceptions\DuplicatedListItemException;
-use DataStructures\Exceptions\ListException;
-use DataStructures\Exceptions\ListOverflowException;
-use DataStructures\Exceptions\ListUnderflowException;
-use DataStructures\Exceptions\NonInsertedItemException;
+use DataStructures\Exceptions\Lists\DuplicatedListItemException;
+use DataStructures\Exceptions\Lists\ListException;
+use DataStructures\Exceptions\Lists\ListOverflowException;
+use DataStructures\Exceptions\Lists\ListUnderflowException;
+use DataStructures\Exceptions\Lists\NonInsertedItemException;
 use DataStructures\Lists\LinearList;
 use PHPUnit\Framework\TestCase;
 use Random\RandomException;
@@ -16,7 +16,7 @@ class LinearListTest extends TestCase
     /**
      * @throws RandomException
      */
-    public function testCanCreateLinearListWithPositiveSpaces(): void
+    public function testCanCreateLinearListWithPositiveSize(): void
     {
         $n = random_int(1, PHP_INT_MAX);
         $linearList = new LinearList($n);
@@ -56,7 +56,7 @@ class LinearListTest extends TestCase
     public function testCanNotInsertDuplicatedItem()
     {
         $list = new LinearList(2);
-        $exception = new \Exception();
+        $exception = null;
 
         try {
             $list->append(1)->append(1);
@@ -70,7 +70,7 @@ class LinearListTest extends TestCase
     public function testCanNotInsertOnFullyLinearList()
     {
         $list = new LinearList(1);
-        $exception = new \Exception();
+        $exception = null;
 
         try {
             $list->append(1)->append(2);
@@ -97,7 +97,7 @@ class LinearListTest extends TestCase
     public function testCanNotRemoveNonInsertedItem()
     {
         $list = new LinearList(5);
-        $exception = new \Exception();
+        $exception = null;
 
         try {
             $list
@@ -113,7 +113,7 @@ class LinearListTest extends TestCase
     public function testCanNotRemoveItemFromEmptyList()
     {
         $list = new LinearList(5);
-        $exception = new \Exception();
+        $exception = null;
 
         try {
             $list->remove(1);
