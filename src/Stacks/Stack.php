@@ -4,9 +4,11 @@ namespace DataStructures\Stacks;
 
 use DataStructures\Exceptions\Stacks\StackOverflowException;
 use DataStructures\Exceptions\Stacks\StackUnderflowException;
+use DataStructures\Traits\WithSize;
 
 class Stack implements StackInterface
 {
+    use WithSize;
     private int $size = 0;
     public array $stack = [];
     public readonly int $maxSize;

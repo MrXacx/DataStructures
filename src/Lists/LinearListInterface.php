@@ -2,7 +2,7 @@
 
 namespace DataStructures\Lists;
 
-interface ListInterface
+interface LinearListInterface
 {
     public function fetch($n): ?int;
     public function append($n): self;

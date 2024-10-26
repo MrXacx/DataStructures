@@ -5,9 +5,11 @@ namespace DataStructures\Queues;
 use DataStructures\Exceptions\Queues\QueueOverflowException;
 use DataStructures\Exceptions\Queues\QueueUnderflowException;
 use DataStructures\Queues\QueueInterface;
+use DataStructures\Traits\WithSize;
 
 class Queue implements QueueInterface
 {
+    use WithSize;
     public readonly int $maxSize;
     private int $size = 0;
     private array $queue = [];

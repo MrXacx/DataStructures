@@ -7,9 +7,11 @@ use DataStructures\Exceptions\Lists\ListException;
 use DataStructures\Exceptions\Lists\ListOverflowException;
 use DataStructures\Exceptions\Lists\ListUnderflowException;
 use DataStructures\Exceptions\Lists\NonInsertedItemException;
+use DataStructures\Traits\WithSize;
 
-class LinearList implements ListInterface
+class LinearList implements LinearListInterface
 {
+    use WithSize;
     protected array $list = [];
     protected int $size = 0;
     public readonly int $maxSize;
@@ -42,7 +44,7 @@ class LinearList implements ListInterface
     }
 
 
-    public function append($n): ListInterface
+    public function append($n): LinearListInterface
     {
         if ($this->size < $this->maxSize) {
             if (is_null($this->fetch($n))) {
@@ -58,7 +60,7 @@ class LinearList implements ListInterface
         return $this;
     }
 
-    public function remove($n): ListInterface
+    public function remove($n): LinearListInterface
     {
         if ($this->size > 0) {
             $index = $this->fetch($n);

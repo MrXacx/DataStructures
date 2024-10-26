@@ -36,7 +36,7 @@ class SortedLinearList extends LinearList
         return $i;
     }
 
-    public function append($n): ListInterface
+    public function append($n): LinearListInterface
     {
         if ($this->size < $this->maxSize) {
             $indexOrNext = $this->fetchOrNext($n);

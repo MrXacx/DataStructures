@@ -2,9 +2,11 @@
 
 namespace Tests\Stacks;
 
+use DataStructures\Classes\Node;
 use DataStructures\Exceptions\Stacks\StackOverflowException;
 use DataStructures\Exceptions\Stacks\StackUnderflowException;
 use DataStructures\Exceptions\Stacks\StackException;
+use DataStructures\Lists\LinkedList;
 use DataStructures\Stacks\Stack;
 use PHPUnit\Framework\TestCase;
 

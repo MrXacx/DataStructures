@@ -2,12 +2,13 @@
 
 namespace DataStructures\Exceptions\Lists;
 
-use DataStructures\Lists\ListInterface;
+use DataStructures\Lists\LinkedListInterface;
+use DataStructures\Lists\LinearListInterface;
 
 abstract class ListException extends \RuntimeException
 {
-    protected ListInterface $list;
-    public function __construct(ListInterface $list, string $message)
+    protected LinearListInterface|LinkedListInterface $list;
+    public function __construct(LinearListInterface|LinkedListInterface $list, string $message)
     {
         parent::__construct($message);
         $this->list = $list;
