@@ -2,6 +2,9 @@
 
 namespace DataStructures\Lists;
 
+use DataStructures\Exceptions\Lists\DuplicatedListItemException;
+use DataStructures\Exceptions\Lists\ListOverflowException;
+
 class SortedLinearList extends LinearList
 {
     public function fetch($n): ?int
@@ -46,7 +49,11 @@ class SortedLinearList extends LinearList
                 }
                 $this->list[$indexOrNext] = $n;
                 $this->size++;
+            } else {
+                throw new DuplicatedListItemException($this, "$n has on list");
             }
+        } else {
+            throw new ListOverflowException($this, "The list is fully");
         }
 
         return $this;

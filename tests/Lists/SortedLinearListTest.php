@@ -2,6 +2,9 @@
 
 namespace Tests\Lists;
 
+use DataStructures\Exceptions\Lists\DuplicatedListItemException;
+use DataStructures\Exceptions\Lists\ListException;
+use DataStructures\Exceptions\Lists\ListOverflowException;
 use DataStructures\Lists\SortedLinearList;
 use PHPUnit\Framework\TestCase;
 
@@ -49,5 +52,33 @@ class SortedLinearListTest extends TestCase
 
         $this->assertNull($list->fetch(2));
         $this->assertEquals(1, $list->fetch(3));
+    }
+
+    public function testCanNotInsertDuplicatedItem()
+    {
+        $list = new SortedLinearList(2);
+        $exception = null;
+
+        try {
+            $list->append(1)->append(1);
+        } catch (ListException $e) {
+            $exception = $e;
+        } finally {
+            $this->assertInstanceOf(DuplicatedListItemException::class, $exception);
+        }
+    }
+
+    public function testCanNotInsertOnFullyLinearList()
+    {
+        $list = new SortedLinearList(1);
+        $exception = null;
+
+        try {
+            $list->append(1)->append(2);
+        } catch (ListException $e) {
+            $exception = $e;
+        } finally {
+            $this->assertInstanceOf(ListOverflowException::class, $exception);
+        }
     }
 }
