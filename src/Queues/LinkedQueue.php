@@ -11,23 +11,20 @@ use DataStructures\Traits\WithSize;
 class LinkedQueue implements LinkedQueueInterface
 {
     use WithSize;
-    private ?NodeInterface $header;
+    private ?NodeInterface $onLeft = null;
+    private ?NodeInterface $onRight = null;
 
     private int $size = 0;
 
-    function __construct()
-    {
-        $this->header = new Node();
-    }
-
     public function enqueue(NodeInterface $node): \DataStructures\Queues\LinkedQueueInterface
     {
-        $onRight = $this->header;
-        while ($onRight->getNext()){
-            $onRight = $onRight->getNext();
+        if($this->onRight == null){
+            $this->onLeft = $node;
+        } else {
+            $this->onRight->setNext($node);
         }
 
-        $onRight->setNext($node);
+        $this->onRight = $node;
         $this->size++;
 
         return $this;
@@ -35,12 +32,13 @@ class LinkedQueue implements LinkedQueueInterface
 
     public function dequeue(): mixed
     {
-        if ($this->size > 0) {
-            $onLeft = $this->header->getNext();
-            $this->header->setNext($onLeft->getNext());
+        if($this->onLeft!=null){
+            $n = $this->onLeft->value;
+            $this->onLeft = $this->onLeft->getNext();
 
-            $n = $onLeft->value;
-            $this->size--;
+            if($this->onLeft == null){
+                $this->onRight = null;
+            }
         } else {
             throw new QueueUnderflowException($this, "The queue is empty");
         }
