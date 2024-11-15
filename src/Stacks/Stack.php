@@ -16,14 +16,13 @@ class Stack implements StackInterface
     function __construct(int $maxSize)
     {
         if ($maxSize > 0){
-
-        $this->maxSize = $maxSize;
+            $this->maxSize = $maxSize;
         } else {
             throw new StackUnderflowException($this, "The stack length must be positive or null" );
         }
     }
 
-    public function push($n): StackInterface
+    public function push($n): self
     {
         if($this->size < $this->maxSize) {
             $this->stack[$this->size] = $n;

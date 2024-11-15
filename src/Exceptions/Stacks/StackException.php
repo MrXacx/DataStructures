@@ -2,13 +2,14 @@
 
 namespace DataStructures\Exceptions\Stacks;
 
+use DataStructures\Stacks\LinkedStackInterface;
 use DataStructures\Stacks\StackInterface;
 use RuntimeException;
 
 abstract class StackException extends RuntimeException
 {
-    protected StackInterface $stack;
-    public function __construct(StackInterface $stack, string $message)
+    protected StackInterface|LinkedStackInterface $stack;
+    public function __construct(StackInterface|LinkedStackInterface $stack, string $message)
     {
         parent::__construct($message);
         $this->stack = $stack;

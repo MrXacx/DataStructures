@@ -2,11 +2,9 @@
 
 namespace Tests\Stacks;
 
-use DataStructures\Classes\Node;
 use DataStructures\Exceptions\Stacks\StackOverflowException;
 use DataStructures\Exceptions\Stacks\StackUnderflowException;
 use DataStructures\Exceptions\Stacks\StackException;
-use DataStructures\Lists\LinkedList;
 use DataStructures\Stacks\Stack;
 use PHPUnit\Framework\TestCase;
 
@@ -61,7 +59,7 @@ class StackTest extends TestCase
 
     }
 
-    public function testCanNotPopEmptyStack()
+    public function testCanNotPopOnEmptyStack()
     {
         $stack = new Stack(3);
         $exception = null;

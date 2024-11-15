@@ -5,18 +5,18 @@ namespace DataStructures\Classes;
 class Node implements NodeInterface
 {
     public mixed $value;
-    private ?Node $next = null;
+    private ?NodeInterface $next = null;
 
     function __construct($value = null)
     {
         $this->value = $value;
     }
-    public function setNext(?Node $next): void
+    public function setNext(?NodeInterface $next): void
     {
         $this->next = $next;
     }
 
-    public function getNext(): ?Node
+    public function getNext(): ?NodeInterface
     {
         return $this->next;
     }
