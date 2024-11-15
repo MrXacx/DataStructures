@@ -2,12 +2,13 @@
 
 namespace DataStructures\Exceptions\Queues;
 
+use DataStructures\Queues\LinkedQueueInterface;
 use DataStructures\Queues\QueueInterface;
 
 abstract class QueueException extends \RuntimeException
 {
-    protected QueueInterface $queue;
-    public function __construct(QueueInterface $queue, string $message)
+    protected QueueInterface|LinkedQueueInterface $queue;
+    public function __construct(QueueInterface|LinkedQueueInterface $queue, string $message)
     {
         parent::__construct($message);
         $this->queue = $queue;
