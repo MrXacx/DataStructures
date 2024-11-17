@@ -1,0 +1,52 @@
+name: Code Style CI
+
+on:
+  pull_request:
+    branches: [ "main" ]
+
+permissions:
+  contents: write
+
+jobs:
+
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.head_ref }}
+
+      - name: Extract branch name
+        id: extract_branch
+        shell: bash
+        run: echo "branch=${GITHUB_HEAD_REF:-${GITHUB_REF#refs/heads/}}" >> $GITHUB_OUTPUT
+
+      - name: Cache Composer packages
+        id: composer-cache
+        uses: actions/cache@v3
+        with:
+          path: vendor
+          key: ${{ runner.os }}-php-${{ hashFiles('**/composer.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-php-
+
+      - name: Install PHP-CS-FIXER
+        run: composer install
+
+      - name: Check code style
+        id: checking
+        run: composer check-style
+        continue-on-error: true
+
+      - name: Fix code style
+        if: ${{steps.checking.outcome == 'failure'}}
+        run: composer fix-style
+
+      - name: Commit changes
+        if: ${{steps.checking.outcome == 'failure'}}
+        uses: stefanzweifel/git-auto-commit-action@v5
+        with:
+          branch: ${{steps.extract_branch.outputs.branch}}
+          commit_message: Apply formatter changes
+          file_pattern: 'src/* tests/*'
