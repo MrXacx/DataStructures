@@ -31,12 +31,16 @@ jobs:
         run: composer install
 
       - name: Check code style
+        id: checking
         run: composer check-style
+        continue-on-error: true
 
       - name: Fix code style
+        if: ${{steps.checking.outcome == 'failure'}}
         run: composer fix-style
 
       - name: Commit changes
+        if: ${{steps.checking.outcome == 'failure'}}
         uses: stefanzweifel/git-auto-commit-action@v5
         with:
           commit_message: Apply formatter changes
