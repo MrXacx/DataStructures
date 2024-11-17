@@ -49,4 +49,4 @@ jobs:
         with:
           branch: ${{steps.extract_branch.outputs.branch}}
           commit_message: Apply formatter changes
-          file_pattern: 'src/*, tests/*'
+          file_pattern: 'src/* tests/*'
