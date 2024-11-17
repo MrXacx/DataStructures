@@ -18,7 +18,7 @@ class LinkedQueue implements LinkedQueueInterface
 
     public function enqueue(NodeInterface $node): \DataStructures\Queues\LinkedQueueInterface
     {
-        if($this->onRight == null){
+        if ($this->onRight == null) {
             $this->onLeft = $node;
         } else {
             $this->onRight->setNext($node);
@@ -32,11 +32,11 @@ class LinkedQueue implements LinkedQueueInterface
 
     public function dequeue(): mixed
     {
-        if($this->onLeft!=null){
+        if ($this->onLeft != null) {
             $n = $this->onLeft->value;
             $this->onLeft = $this->onLeft->getNext();
 
-            if($this->onLeft == null){
+            if ($this->onLeft == null) {
                 $this->onRight = null;
             }
         } else {

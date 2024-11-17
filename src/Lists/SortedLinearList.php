@@ -10,7 +10,7 @@ class SortedLinearList extends LinearList
     public function fetch($n): ?int
     {
         $onLeft = 0;
-        $onRight = $this->size-1;
+        $onRight = $this->size - 1;
         $fetched = null;
 
         while ($onLeft <= $onRight) {

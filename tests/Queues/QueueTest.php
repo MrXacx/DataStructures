@@ -21,7 +21,7 @@ class QueueTest extends TestCase
         try {
             $n = rand(PHP_INT_MIN, 0);
             $queue = new Queue($n);
-        } catch (QueueException $e){
+        } catch (QueueException $e) {
             $this->assertInstanceOf(QueueUnderflowException::class, $e);
         }
     }
@@ -31,11 +31,11 @@ class QueueTest extends TestCase
         $queue = new Queue(5);
         $values = [1,2,3];
 
-        foreach ($values as $v){
+        foreach ($values as $v) {
             $queue->enqueue($v);
         }
 
-        foreach ($values as $v){
+        foreach ($values as $v) {
             $this->assertEquals($v, $queue->dequeue());
         }
 
@@ -50,7 +50,7 @@ class QueueTest extends TestCase
             $queue
                 ->enqueue(1)
                 ->enqueue(2);
-        } catch (QueueException $e){
+        } catch (QueueException $e) {
             $exception = $e;
         } finally {
             $this->assertInstanceOf(QueueOverflowException::class, $exception);
@@ -64,7 +64,7 @@ class QueueTest extends TestCase
 
         try {
             $queue->dequeue();
-        } catch (QueueException $e){
+        } catch (QueueException $e) {
             $exception = $e;
         } finally {
             $this->assertInstanceOf(QueueUnderflowException::class, $exception);
