@@ -45,4 +45,16 @@ class LinkedQueue implements LinkedQueueInterface
 
         return $n;
     }
+
+    public function toArray(): array
+    {
+        $arr = [];
+        $node = $this->onLeft;
+        while ($node != null){
+            $arr[] = $node->value;
+            $node = $node->getNext();
+        }
+
+        return $arr;
+    }
 }

@@ -2,7 +2,9 @@
 
 namespace DataStructures\Queues;
 
-interface QueueInterface
+use DataStructures\Classes\Arrayable;
+
+interface QueueInterface extends Arrayable
 {
     public function enqueue($n): self;
     public function dequeue(): mixed;

@@ -123,4 +123,15 @@ class LinearListTest extends TestCase
             $this->assertInstanceOf(ListUnderflowException::class, $exception);
         }
     }
+
+    public function testIfIsArrayable()
+    {
+        $arr = [1, 2, 3, 403, 234, -123, 458, 903, 201, 15, 38];
+        $list = new LinearList(sizeof($arr));
+        foreach ($arr as $i){
+            $list->append($i);
+        }
+
+        $this->assertEquals($arr, $list->toArray());
+    }
 }

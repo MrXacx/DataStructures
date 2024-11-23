@@ -73,4 +73,17 @@ class StackTest extends TestCase
         }
 
     }
+
+    public function testIfIsArrayable()
+    {
+        $queue = new Stack(5);
+        $arr = [1, 26, 88, -2];
+
+        foreach ($arr as $i){
+            $queue->push($i);
+        }
+
+        $arr = array_reverse($arr);
+        $this->assertEquals($arr, $queue->toArray());
+    }
 }

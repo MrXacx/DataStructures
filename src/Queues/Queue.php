@@ -59,4 +59,9 @@ class Queue implements QueueInterface
 
         return $item;
     }
+
+    public function toArray(): array
+    {
+        return $this->queue;
+    }
 }

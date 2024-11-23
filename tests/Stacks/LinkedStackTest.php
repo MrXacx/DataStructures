@@ -36,4 +36,17 @@ class LinkedStackTest extends TestCase
             $this->assertInstanceOf(StackUnderflowException::class, $exception);
         }
     }
+
+    public function testIfIsArrayable()
+    {
+        $queue = new LinkedStack();
+        $arr = [1, 26, 88, -2];
+
+        foreach ($arr as $i){
+            $queue->push(new Node($i));
+        }
+
+        $arr = array_reverse($arr);
+        $this->assertEquals($arr, $queue->toArray());
+    }
 }

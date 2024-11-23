@@ -2,9 +2,10 @@
 
 namespace DataStructures\Lists;
 
+use DataStructures\Classes\Arrayable;
 use DataStructures\Classes\NodeInterface;
 
-interface LinkedListInterface
+interface LinkedListInterface extends Arrayable
 {
     public function fetchPrevious(NodeInterface $node): NodeInterface;
 

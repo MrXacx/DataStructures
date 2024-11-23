@@ -37,4 +37,16 @@ class LinkedStack implements LinkedStackInterface
 
         return $n;
     }
+
+    public function toArray(): array
+    {
+        $arr = [];
+        $node = $this->onTop;
+        while ($node->getNext() != null){
+            $arr[] = $node->value;
+            $node = $node->getNext();
+        }
+
+        return $arr;
+    }
 }

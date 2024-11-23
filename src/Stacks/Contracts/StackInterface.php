@@ -2,7 +2,9 @@
 
 namespace DataStructures\Stacks;
 
-interface StackInterface
+use DataStructures\Classes\Arrayable;
+
+interface StackInterface extends Arrayable
 {
     public function push($n): self;
     public function pop(): mixed;

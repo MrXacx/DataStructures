@@ -70,4 +70,16 @@ class QueueTest extends TestCase
             $this->assertInstanceOf(QueueUnderflowException::class, $exception);
         }
     }
+
+    public function testIfIsArrayable()
+    {
+        $queue = new Queue(5);
+        $arr = [1, 26, 88, -2];
+
+        foreach ($arr as $i){
+            $queue->enqueue($i);
+        }
+
+        $this->assertEquals($arr, $queue->toArray());
+    }
 }

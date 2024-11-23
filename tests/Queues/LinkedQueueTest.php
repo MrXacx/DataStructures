@@ -39,4 +39,16 @@ class LinkedQueueTest extends TestCase
             $this->assertInstanceOf(QueueUnderflowException::class, $exception);
         }
     }
+
+    public function testIfIsArrayable()
+    {
+        $queue = new LinkedQueue();
+        $arr = [1, 26, 88, -2];
+
+        foreach ($arr as $i){
+            $queue->enqueue(new Node($i));
+        }
+
+        $this->assertEquals($arr, $queue->toArray());
+    }
 }

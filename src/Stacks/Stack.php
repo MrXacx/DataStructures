@@ -46,4 +46,9 @@ class Stack implements StackInterface
 
         return $fetched;
     }
+
+    public function toArray(): array
+    {
+        return array_reverse($this->stack);
+    }
 }

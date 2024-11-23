@@ -77,4 +77,9 @@ class LinearList implements LinearListInterface
         }
         return $this;
     }
+
+    public function toArray(): array
+    {
+        return $this->list;
+    }
 }

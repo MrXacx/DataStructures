@@ -34,7 +34,7 @@ class LinkedList implements LinkedListInterface
     public function append(NodeInterface $newNode): self
     {
        $previousNode = $this->fetchPrevious($newNode);
-       if ($previousNode?->getNext() == null){
+       if ($previousNode->getNext() == null OR $previousNode->getNext()->value != $newNode->value){
            $nextNode = $previousNode->getNext();
            $newNode->setNext($nextNode);
            $previousNode->setNext($newNode);
@@ -60,5 +60,17 @@ class LinkedList implements LinkedListInterface
         }
 
         return $this;
+    }
+
+    public function toArray(): array
+    {
+        $node = $this->head->getNext();
+        $arr = [];
+        while ($node !== null){
+            $arr[] = $node->value;
+            $node = $node->getNext();
+        }
+
+        return $arr;
     }
 }
