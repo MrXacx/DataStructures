@@ -16,11 +16,11 @@ class LinkedQueueTest extends TestCase
         $queue = new LinkedQueue();
         $values = [1,2,3,4,5,6,7];
 
-        foreach ($values as $v){
+        foreach ($values as $v) {
             $queue->enqueue(new Node($v));
         }
 
-        foreach ($values as $v){
+        foreach ($values as $v) {
             $this->assertEquals($v, $queue->dequeue());
         }
 
@@ -33,7 +33,7 @@ class LinkedQueueTest extends TestCase
 
         try {
             $queue->dequeue();
-        } catch (QueueException $e){
+        } catch (QueueException $e) {
             $exception = $e;
         } finally {
             $this->assertInstanceOf(QueueUnderflowException::class, $exception);

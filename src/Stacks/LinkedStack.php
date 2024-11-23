@@ -14,7 +14,7 @@ class LinkedStack implements LinkedStackInterface
     private NodeInterface $onTop;
     private int $size = 0;
 
-    function __construct()
+    public function __construct()
     {
         $this->onTop = new Node();
     }
@@ -28,7 +28,7 @@ class LinkedStack implements LinkedStackInterface
 
     public function pop(): mixed
     {
-        if ($this->size > 0){
+        if ($this->size > 0) {
             $n = $this->onTop->value;
             $this->onTop = $this->onTop->getNext();
             $this->size--;

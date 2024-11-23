@@ -15,7 +15,7 @@ class LinkedList implements LinkedListInterface
     private int $size = 0;
     private readonly Node $head;
 
-    function __construct()
+    public function __construct()
     {
         $this->head = new Node();
     }
@@ -24,7 +24,7 @@ class LinkedList implements LinkedListInterface
         $currentNode = $this->head->getNext();
         $previousNode = $this->head;
 
-        while ($currentNode != null AND $currentNode->value < $node->value){
+        while ($currentNode != null and $currentNode->value < $node->value) {
             $previousNode = $currentNode;
             $currentNode = $currentNode->getNext();
         }
@@ -35,23 +35,23 @@ class LinkedList implements LinkedListInterface
     public function append(NodeInterface $newNode): self
     {
        $previousNode = $this->fetchPrevious($newNode);
-       if ($previousNode->getNext() == null OR $previousNode->getNext()->value != $newNode->value){
+       if ($previousNode->getNext() == null or $previousNode->getNext()->value != $newNode->value){
            $nextNode = $previousNode->getNext();
            $newNode->setNext($nextNode);
            $previousNode->setNext($newNode);
 
-           $this->size++;
-       } else {
+            $this->size++;
+        } else {
             throw new DuplicatedListItemException($this, "The node $newNode->value has on list");
-       }
+        }
 
-       return $this;
+        return $this;
     }
 
     public function remove(NodeInterface $node): self
     {
         $previousNode = $this->fetchPrevious($node);
-        if ($previousNode->getNext() != null){
+        if ($previousNode->getNext() != null) {
             $nextNode = $node->getNext();
             $previousNode->setNext($nextNode);
 

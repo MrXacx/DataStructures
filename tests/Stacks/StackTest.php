@@ -39,7 +39,7 @@ class StackTest extends TestCase
         $arr = [1, '2', 'a', false];
         array_map([$stack, 'push'], $arr);
         $arr = array_reverse($arr);
-        $this->assertTrue(array_reduce($arr, fn($carry, $item) => $carry && $item == $stack->pop(), true));
+        $this->assertTrue(array_reduce($arr, fn ($carry, $item) => $carry && $item == $stack->pop(), true));
     }
 
     public function testCanNotPushOnFullyStack()
@@ -51,7 +51,7 @@ class StackTest extends TestCase
             $stack
                 ->push(1)
                 ->push(2);
-        } catch (StackException $e){
+        } catch (StackException $e) {
             $exception = $e;
         } finally {
             $this->assertInstanceOf(StackOverflowException::class, $exception);
@@ -66,7 +66,7 @@ class StackTest extends TestCase
 
         try {
             $stack->pop();
-        } catch (StackException $e){
+        } catch (StackException $e) {
             $exception = $e;
         } finally {
             $this->assertInstanceOf(StackUnderflowException::class, $exception);

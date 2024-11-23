@@ -9,7 +9,7 @@ class Node implements NodeInterface
     public mixed $value;
     private ?NodeInterface $next = null;
 
-    function __construct($value = null)
+    public function __construct($value = null)
     {
         $this->value = $value;
     }

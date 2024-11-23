@@ -14,18 +14,18 @@ class Stack implements StackInterface
     public array $stack = [];
     public readonly int $maxSize;
 
-    function __construct(int $maxSize)
+    public function __construct(int $maxSize)
     {
-        if ($maxSize > 0){
+        if ($maxSize > 0) {
             $this->maxSize = $maxSize;
         } else {
-            throw new StackUnderflowException($this, "The stack length must be positive or null" );
+            throw new StackUnderflowException($this, "The stack length must be positive or null");
         }
     }
 
     public function push($n): self
     {
-        if($this->size < $this->maxSize) {
+        if ($this->size < $this->maxSize) {
             $this->stack[$this->size] = $n;
             $this->size++;
         } else {
@@ -38,7 +38,7 @@ class Stack implements StackInterface
     public function pop(): mixed
     {
         $fetched = null;
-        if ($this->size > 0){
+        if ($this->size > 0) {
             $this->size--;
             $fetched = $this->stack[$this->size];
         } else {

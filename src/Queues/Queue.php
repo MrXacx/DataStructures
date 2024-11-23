@@ -16,7 +16,7 @@ class Queue implements QueueInterface
     private int $startAt = 0;
     private int $endAt = 0;
 
-    function __construct(int $maxSize)
+    public function __construct(int $maxSize)
     {
         if ($maxSize > 0) {
             $this->maxSize = $maxSize;

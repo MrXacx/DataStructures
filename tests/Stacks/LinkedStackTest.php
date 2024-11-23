@@ -14,11 +14,11 @@ class LinkedStackTest extends TestCase
     {
         $stack = new LinkedStack();
 
-        for($i = 0; $i < 7; $i++) {
+        for ($i = 0; $i < 7; $i++) {
             $stack->push(new Node($i));
         }
 
-        for($i--; $i > 0; $i--) {
+        for ($i--; $i > 0; $i--) {
             $this->assertEquals($i, $stack->pop());
         }
     }
@@ -30,7 +30,7 @@ class LinkedStackTest extends TestCase
 
         try {
             $stack->pop();
-        } catch (StackException $ex){
+        } catch (StackException $ex) {
             $exception = $ex;
         } finally {
             $this->assertInstanceOf(StackUnderflowException::class, $exception);
