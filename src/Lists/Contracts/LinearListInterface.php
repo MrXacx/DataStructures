@@ -1,8 +1,8 @@
 <?php
 
-namespace DataStructures\Lists;
+namespace DataStructures\Lists\Contracts;
 
-use DataStructures\Classes\Arrayable;
+use DataStructures\Contracts\Arrayable;
 
 interface LinearListInterface extends Arrayable
 {

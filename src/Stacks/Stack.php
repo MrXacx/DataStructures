@@ -4,6 +4,7 @@ namespace DataStructures\Stacks;
 
 use DataStructures\Exceptions\Stacks\StackOverflowException;
 use DataStructures\Exceptions\Stacks\StackUnderflowException;
+use DataStructures\Stacks\Contracts\StackInterface;
 use DataStructures\Traits\WithSize;
 
 class Stack implements StackInterface

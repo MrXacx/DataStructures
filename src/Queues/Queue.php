@@ -4,7 +4,7 @@ namespace DataStructures\Queues;
 
 use DataStructures\Exceptions\Queues\QueueOverflowException;
 use DataStructures\Exceptions\Queues\QueueUnderflowException;
-use DataStructures\Queues\QueueInterface;
+use DataStructures\Queues\Contracts\QueueInterface;
 use DataStructures\Traits\WithSize;
 
 class Queue implements QueueInterface

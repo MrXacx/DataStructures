@@ -1,6 +1,8 @@
 <?php
 
-namespace DataStructures\Classes;
+namespace DataStructures;
+
+use DataStructures\Contracts\NodeInterface;
 
 class Node implements NodeInterface
 {

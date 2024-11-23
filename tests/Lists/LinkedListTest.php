@@ -2,7 +2,7 @@
 
 namespace Tests\Lists;
 
-use DataStructures\Classes\Node;
+use DataStructures\Node;
 use DataStructures\Exceptions\Lists\DuplicatedListItemException;
 use DataStructures\Exceptions\Lists\ListException;
 use DataStructures\Exceptions\Lists\NonInsertedItemException;

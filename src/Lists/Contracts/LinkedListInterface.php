@@ -1,9 +1,9 @@
 <?php
 
-namespace DataStructures\Lists;
+namespace DataStructures\Lists\Contracts;
 
-use DataStructures\Classes\Arrayable;
-use DataStructures\Classes\NodeInterface;
+use DataStructures\Contracts\Arrayable;
+use DataStructures\Contracts\NodeInterface;
 
 interface LinkedListInterface extends Arrayable
 {

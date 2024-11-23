@@ -2,7 +2,7 @@
 
 namespace Tests\Stacks;
 
-use DataStructures\Classes\Node;
+use DataStructures\Node;
 use DataStructures\Exceptions\Stacks\StackException;
 use DataStructures\Exceptions\Stacks\StackUnderflowException;
 use DataStructures\Stacks\LinkedStack;

@@ -2,8 +2,8 @@
 
 namespace DataStructures\Exceptions\Stacks;
 
-use DataStructures\Stacks\LinkedStackInterface;
-use DataStructures\Stacks\StackInterface;
+use DataStructures\Stacks\Contracts\LinkedStackInterface;
+use DataStructures\Stacks\Contracts\StackInterface;
 use RuntimeException;
 
 abstract class StackException extends RuntimeException

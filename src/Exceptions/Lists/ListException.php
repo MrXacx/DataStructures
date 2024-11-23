@@ -2,8 +2,8 @@
 
 namespace DataStructures\Exceptions\Lists;
 
-use DataStructures\Lists\LinkedListInterface;
-use DataStructures\Lists\LinearListInterface;
+use DataStructures\Lists\Contracts\LinkedListInterface;
+use DataStructures\Lists\Contracts\LinearListInterface;
 
 abstract class ListException extends \RuntimeException
 {

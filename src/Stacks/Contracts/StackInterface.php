@@ -1,8 +1,8 @@
 <?php
 
-namespace DataStructures\Stacks;
+namespace DataStructures\Stacks\Contracts;
 
-use DataStructures\Classes\Arrayable;
+use DataStructures\Contracts\Arrayable;
 
 interface StackInterface extends Arrayable
 {

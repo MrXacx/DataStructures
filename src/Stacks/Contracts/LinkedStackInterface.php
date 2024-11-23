@@ -1,9 +1,9 @@
 <?php
 
-namespace DataStructures\Stacks;
+namespace DataStructures\Stacks\Contracts;
 
-use DataStructures\Classes\Arrayable;
-use DataStructures\Classes\NodeInterface;
+use DataStructures\Contracts\Arrayable;
+use DataStructures\Contracts\NodeInterface;
 
 interface LinkedStackInterface extends Arrayable
 {

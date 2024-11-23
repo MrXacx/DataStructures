@@ -1,9 +1,9 @@
 <?php
 
-namespace DataStructures\Queues;
+namespace DataStructures\Queues\Contracts;
 
-use DataStructures\Classes\Arrayable;
-use DataStructures\Classes\NodeInterface;
+use DataStructures\Contracts\Arrayable;
+use DataStructures\Contracts\NodeInterface;
 
 interface LinkedQueueInterface extends Arrayable
 {

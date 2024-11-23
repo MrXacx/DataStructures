@@ -2,10 +2,11 @@
 
 namespace DataStructures\Lists;
 
-use DataStructures\Classes\Node;
-use DataStructures\Classes\NodeInterface;
+use DataStructures\Node;
+use DataStructures\Contracts\NodeInterface;
 use DataStructures\Exceptions\Lists\DuplicatedListItemException;
 use DataStructures\Exceptions\Lists\NonInsertedItemException;
+use DataStructures\Lists\Contracts\LinkedListInterface;
 use DataStructures\Traits\WithSize;
 
 class LinkedList implements LinkedListInterface

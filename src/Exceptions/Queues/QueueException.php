@@ -2,8 +2,8 @@
 
 namespace DataStructures\Exceptions\Queues;
 
-use DataStructures\Queues\LinkedQueueInterface;
-use DataStructures\Queues\QueueInterface;
+use DataStructures\Queues\Contracts\LinkedQueueInterface;
+use DataStructures\Queues\Contracts\QueueInterface;
 
 abstract class QueueException extends \RuntimeException
 {

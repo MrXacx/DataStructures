@@ -2,10 +2,10 @@
 
 namespace DataStructures\Queues;
 
-use DataStructures\Classes\Node;
-use DataStructures\Classes\NodeInterface;
+use DataStructures\Node;
+use DataStructures\Contracts\NodeInterface;
 use DataStructures\Exceptions\Queues\QueueUnderflowException;
-use DataStructures\Queues\LinkedQueueInterface;
+use DataStructures\Queues\Contracts\LinkedQueueInterface;
 use DataStructures\Traits\WithSize;
 
 class LinkedQueue implements LinkedQueueInterface
@@ -16,7 +16,7 @@ class LinkedQueue implements LinkedQueueInterface
 
     private int $size = 0;
 
-    public function enqueue(NodeInterface $node): \DataStructures\Queues\LinkedQueueInterface
+    public function enqueue(NodeInterface $node): \DataStructures\Queues\Contracts\LinkedQueueInterface
     {
         if($this->onRight == null){
             $this->onLeft = $node;

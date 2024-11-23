@@ -7,6 +7,7 @@ use DataStructures\Exceptions\Lists\ListException;
 use DataStructures\Exceptions\Lists\ListOverflowException;
 use DataStructures\Exceptions\Lists\ListUnderflowException;
 use DataStructures\Exceptions\Lists\NonInsertedItemException;
+use DataStructures\Lists\Contracts\LinearListInterface;
 use DataStructures\Traits\WithSize;
 
 class LinearList implements LinearListInterface

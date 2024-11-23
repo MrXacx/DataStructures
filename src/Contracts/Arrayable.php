@@ -1,6 +1,6 @@
 <?php
 
-namespace DataStructures\Classes;
+namespace DataStructures\Contracts;
 
 interface Arrayable
 {

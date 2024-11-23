@@ -1,8 +1,8 @@
 <?php
 
-namespace DataStructures\Queues;
+namespace DataStructures\Queues\Contracts;
 
-use DataStructures\Classes\Arrayable;
+use DataStructures\Contracts\Arrayable;
 
 interface QueueInterface extends Arrayable
 {

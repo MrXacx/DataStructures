@@ -2,7 +2,7 @@
 
 namespace Tests\Queues;
 
-use DataStructures\Classes\Node;
+use DataStructures\Node;
 use DataStructures\Exceptions\Queues\QueueException;
 use DataStructures\Exceptions\Queues\QueueUnderflowException;
 use DataStructures\Queues\LinkedQueue;

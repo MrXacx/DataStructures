@@ -2,9 +2,10 @@
 
 namespace DataStructures\Stacks;
 
-use DataStructures\Classes\Node;
-use DataStructures\Classes\NodeInterface;
+use DataStructures\Node;
+use DataStructures\Contracts\NodeInterface;
 use DataStructures\Exceptions\Stacks\StackUnderflowException;
+use DataStructures\Stacks\Contracts\LinkedStackInterface;
 use DataStructures\Traits\WithSize;
 
 class LinkedStack implements LinkedStackInterface
