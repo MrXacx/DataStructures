@@ -81,6 +81,6 @@ class LinearList implements LinearListInterface
 
     public function toArray(): array
     {
-        return $this->list;
+        return array_slice($this->list, 0, $this->size);
     }
 }

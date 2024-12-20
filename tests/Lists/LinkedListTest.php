@@ -6,7 +6,6 @@ use DataStructures\Node;
 use DataStructures\Exceptions\Lists\DuplicatedListItemException;
 use DataStructures\Exceptions\Lists\ListException;
 use DataStructures\Exceptions\Lists\NonInsertedItemException;
-use DataStructures\Lists\LinearList;
 use DataStructures\Lists\LinkedList;
 use PHPUnit\Framework\TestCase;
 
@@ -77,6 +76,23 @@ class LinkedListTest extends TestCase
         $list = new LinkedList();
         foreach ($arr as $i){
             $list->append(new Node($i));
+        }
+
+        sort($arr);
+        $this->assertEquals($arr, $list->toArray());
+    }
+
+    public  function testIfArrayIsConsistentAfterRemoval(){
+        $arr = [1, 2, 3, 403, 234, -123, 458, 903, 201, 15, 38];
+        $list = new LinkedList();
+
+        foreach ($arr as $i){
+            $list->append(new Node($i));
+        }
+        $i = -1;
+        while(++$i < rand(1, sizeof($arr) - 1 )){
+            $list->remove(new Node($arr[$i]));
+            unset($arr[$i]);
         }
 
         sort($arr);

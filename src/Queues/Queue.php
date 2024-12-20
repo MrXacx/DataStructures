@@ -62,6 +62,18 @@ class Queue implements QueueInterface
 
     public function toArray(): array
     {
-        return $this->queue;
+        $arr = [];
+        $count = 0;
+        $i = $this->startAt;
+        while($count < $this->size){
+            $arr[] = $this->queue[$i];
+            $count++;
+            $i++;
+
+            if ($i == $this->size){
+                $i = 0;
+            }
+        }
+        return $arr;
     }
 }

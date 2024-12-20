@@ -134,4 +134,24 @@ class LinearListTest extends TestCase
 
         $this->assertEquals($arr, $list->toArray());
     }
+
+    public  function testIfArrayIsConsistentAfterRemoval(){
+        $arr = [1, 2, 3, 403, 234, -123, 458, 903, 201, 15, 38];
+        $size =  sizeof($arr);
+        $list = new LinearList($size);
+
+        foreach ($arr as $v){
+            $list->append($v);
+        }
+
+        $i = -1;
+        $until = rand(1, $size - 1 );
+        while(++$i < $until){
+            $list->remove($arr[$i]);
+            unset($arr[$i]);
+        }
+
+        $arr = array_values($arr);
+        $this->assertEquals($arr, $list->toArray());
+    }
 }

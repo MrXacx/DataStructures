@@ -81,4 +81,36 @@ class SortedLinearListTest extends TestCase
             $this->assertInstanceOf(ListOverflowException::class, $exception);
         }
     }
+
+    public function testIfIsArrayable()
+    {
+        $arr = [1, 2, 3, 403, 234, -123, 458, 903, 201, 15, 38];
+        $list = new SortedLinearList(sizeof($arr));
+        foreach ($arr as $i){
+            $list->append($i);
+        }
+
+        sort($arr);
+        $this->assertEquals($arr, $list->toArray());
+    }
+
+    public  function testIfArrayIsConsistentAfterRemoval(){
+        $arr = [1, 2, 3, 403, 234, -123, 458, 903, 201, 15, 38];
+        $size =  sizeof($arr);
+        $list = new SortedLinearList($size);
+
+        foreach ($arr as $v){
+            $list->append($v);
+        }
+
+        $i = -1;
+        $until = rand(1, $size - 1 );
+        while(++$i < $until){
+            $list->remove($arr[$i]);
+            unset($arr[$i]);
+        }
+
+        sort($arr);
+        $this->assertEquals($arr, $list->toArray());
+    }
 }

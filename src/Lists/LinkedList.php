@@ -52,6 +52,7 @@ class LinkedList implements LinkedListInterface
     {
         $previousNode = $this->fetchPrevious($node);
         if ($previousNode->getNext() != null) {
+            $node = $previousNode->getNext();
             $nextNode = $node->getNext();
             $previousNode->setNext($nextNode);
 
